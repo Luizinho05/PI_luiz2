@@ -1,0 +1,40 @@
+a {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+
+
+
+
+.aligntitle {
+    text-align: center;
+}
+
+.aligncard {
+    text-align: center;
+}
+
+.info{
+    text-decoration: underline;
+}
+
+.infoimg{
+    border-radius: 1rem;
+}
+
+a:link {
+    color: blue;
+    text-decoration: none;
+}
+
+.home{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

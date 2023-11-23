@@ -1,0 +1,68 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id        String    @id @default(uuid())
+    nome      String
+    email     String
+    senha     String
+    create_at DateTime? @default(now())
+    update_at DateTime? @default(now())
+
+    @@map("user")
+}
+
+model Client {
+    id          String @id @default(uuid())
+    nome        String
+    idade       String
+    cpf_cnpj    String
+    rg_ie       String
+    cep         String
+    estado      String
+    cidade      String
+    bairro      String
+    rua         String
+    complemento String?
+    endereco    String
+
+    create_at DateTime? @default(now())
+    update_at DateTime? @default(now())
+
+    @@map("client")
+}
+
+model Products {
+    id         String    @id @default(uuid())
+    img        String
+    nome       String
+    marca      String
+    tipo       String
+    tamanho    String
+    quantidade String
+    preco      String
+    create_at  DateTime? @default(now())
+    update_at  DateTime? @default(now())
+
+    categorias  Categorias @relation(fields: [categoriaId], references: [id])
+    categoriaId String
+
+    @@map("products")
+}
+
+model Categorias {
+    id        String    @id @default(uuid())
+    nome      String
+    create_at DateTime? @default(now())
+    update_at DateTime? @default(now())
+
+    products Products[]
+
+    @@map("categorias")
+}

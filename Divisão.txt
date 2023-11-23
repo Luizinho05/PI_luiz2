@@ -1,0 +1,24 @@
+Divisão de trabalhos
+
+
+Luiz
+
+-Criação do controllers e services de clientes//                   feito
+-Criação do Frontend - Login, Dashboard, Dashboard(Usuarios)//     feito
+
+Renan
+
+-Criação do server
+-Criação do Frontend - Dashboard(Produtos)
+
+Fernando
+
+-Criação dos controllers e services de produtos
+-Criação do Frontend - Dashboard(Clientes)
+			
+
+todos
+
+-Discussão e planejamento do front-end e back-end
+
+--------------------

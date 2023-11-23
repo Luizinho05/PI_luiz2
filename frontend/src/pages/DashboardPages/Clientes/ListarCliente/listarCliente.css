@@ -1,0 +1,23 @@
+.TituloPagina {
+  color: black;
+  text-align: center;
+  margin: 20px;
+  font-size: 35px;
+  border: none;
+}
+
+.Info {
+  justify-content: space-around;
+}
+
+.Divisor {
+  color: black;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+.icones {
+  cursor: pointer;
+  margin-top: 1px;
+  text-align: center;
+}

@@ -1,0 +1,30 @@
+.dashboard{
+    display: flex;
+    flex-direction:column;
+    row-gap: 1px;
+    grid-template-columns: 600px 600px;
+    box-sizing:border-box;
+    max-width: 800px;
+     margin: 1px;
+
+    button{
+        margin-top: 1rem;
+        height: 3rem;
+        width: 30%;
+        border-radius: 0.5rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        background-color: #1253f5;
+        padding: 0.3rem;
+        color: #FFFFFF;
+
+
+        a{
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FFFFFF;
+
+        }
+    }
+}
