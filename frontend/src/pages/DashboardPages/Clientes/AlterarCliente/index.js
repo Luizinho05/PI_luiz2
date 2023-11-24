@@ -87,23 +87,42 @@ export default function AlterarCliente() {
             <div className='formInicio'>
                 <form onSubmit={AlterarCliente}>
                     <label>Insira Nome</label>
-                    <input type='text' value={alteraNome} onChange={(e) => { setAlteraNome(e.target.value) }} />
+                    <input
+                     type='text'
+                      value={alteraNome}
+                       onChange={(e) => { setAlteraNome(e.target.value) }} />
                     <label>Insira Idade</label>
-                    <input type='text' value={alteraIdade} onChange={(e) => { setAlteraIdade(e.target.value) }} />
+                    <input type='text'
+                     value={alteraIdade}
+                      onChange={(e) => { setAlteraIdade(e.target.value) }} />
                     <label>Insira CEP</label>
-                    <input type='text' value={alteraCep} onChange={(e) => { setAlteraCep(e.target.value) }} />
+                    <input type='text'
+                     value={alteraCep}
+                      onChange={(e) => { setAlteraCep(e.target.value) }} />
                     <label>Insira Estado</label>
-                    <input type='text' value={alteraEstado} onChange={(e) => { setAlteraEstado(e.target.value) }} />
+                    <input type='text'
+                     value={alteraEstado}
+                      onChange={(e) => { setAlteraEstado(e.target.value) }} />
                     <label>Insira Cidade</label>
-                    <input type='text' value={alteraCidade} onChange={(e) => { setAlteraCidade(e.target.value) }} />
+                    <input type='text'
+                    value={alteraCidade}
+                    onChange={(e) => { setAlteraCidade(e.target.value) }} />
                     <label>Insira Bairro</label>
-                    <input type='text' value={alteraBairro} onChange={(e) => { setAlteraBairro(e.target.value) }} />
+                    <input type='text'
+                    value={alteraBairro}
+                    onChange={(e) => { setAlteraBairro(e.target.value) }} />
                     <label>Insira Rua</label>
-                    <input type='text' value={alteraRua} onChange={(e) => { setAlteraRua(e.target.value) }} />
+                    <input type='text'
+                     alue={alteraRua}
+                    onChange={(e) => { setAlteraRua(e.target.value) }} />
                     <label>Insira Complemento</label>
-                    <input type='text' value={alteraComplemento} onChange={(e) => { setAlteraComplemento(e.target.value) }} />
+                    <input type='text'
+                    value={alteraComplemento}
+                    onChange={(e) => { setAlteraComplemento(e.target.value) }} />
                     <label>Insira Endereço</label>
-                    <input type='text' value={alteraEndereco} onChange={(e) => { setAlteraEndereco(e.target.value) }} />
+                    <input type='text'
+                    value={alteraEndereco}
+                    onChange={(e) => { setAlteraEndereco(e.target.value) }} />
                 </form>
             </div>
         </div>

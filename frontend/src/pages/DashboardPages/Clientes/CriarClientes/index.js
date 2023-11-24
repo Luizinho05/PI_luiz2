@@ -166,13 +166,14 @@ export default function CriarCliente() {
                         value={rua} onChange={(e) => setRua(e.target.value)}
                     />
 
-                    <br /> <br />
+                    <br />
 
                     <button type="submit">Cadastrar</button>
 
                     <br /> <br />
                 </form>
             </div>
+            <br/><br/><br/><br/>
         </div>
     )
 }

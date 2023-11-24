@@ -42,9 +42,9 @@ export default function Home() {
             </div>
 
             <br /> <br /> <br />
-
+            
             <div className="aligntitle">
-            <iframe className="infoimg" src="https://www.google.com/maps/@-22.3227398,-49.0731186,3a,75y,194.38h,86.31t/data=!3m6!1e1!3m4!1sOl_fj7z160r-p6iukKwBdA!2e0!7i13312!8i6656?hl=pt-BR&entry=ttu" width="500" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" /><br />
+            <iframe className="infoimg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14763.337608019845!2d-49.08929326693312!3d-22.322101749732358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bf67984ef06eb3%3A0x83b97cd89092ade3!2sLoja%20TIM%20-%20Bauru%20Batista%20de%20Carvalho!5e0!3m2!1spt-BR!2sbr!4v1700791531400!5m2!1spt-BR!2sbr" width="500" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" /><br />
             <p className="info">Loja sob-reforma</p>
             <a>Encontrou algum erro ou gostaria de enviar alguma recomendação?</a>
             <a href="/contato"> Contate-nos</a>
