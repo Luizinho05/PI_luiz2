@@ -39,26 +39,36 @@ export default function CriarCliente() {
     const [buscaCep, setBuscaCep] = useState("")
 
     async function handleCep() {
-        const response = await apiCep.get(`/${cep}/json/`)
-        setBuscaCep(response.data)
+        if(cep.length < 8 || cep.length > 8){
+            toast.warn('CEP incorreto')
+            return
+        } else {
+            const response = await apiCep.get(`${cep}/json`)
+            if (response.data.err === true){
+                toast.warn('CEP inexistente')
+                return
+            } else{
+                setBuscaCep(response.data)
+            }
+        }
     }
 
     useEffect(() => {
         function addBuscaCep() {
-            setEstado(buscaCep.uf)
-            setCidade(buscaCep.localidade)
-            setBairro(buscaCep.bairro)
-            setRua(buscaCep.logradouro)
+            setEstado(buscaCep.uf || estado)
+            setCidade(buscaCep.localidade || cidade)
+            setBairro(buscaCep.bairro || bairro)
+            setRua(buscaCep.logradouro || rua)
         }
         addBuscaCep()
-    }, [handleCep]);
+    }, [handleCep])
 
     async function handleCadastrar(e) {
         e.preventDefault()
         try {
             const iToken = localStorage.getItem('@vistaseToken')
             const token = JSON.parse(iToken)
-           // console.log(token)
+           
             await apiLocal.post("/CriarCliente", {
                 nome: nome,
                 idade: idade,
@@ -112,7 +122,7 @@ export default function CriarCliente() {
                         value={tel} onChange={(e) => setTel(e.target.value)}
                     />
 
-                    <label>cpf ou cnpj:</label>
+                    <label>CPF ou CNPJ:</label>
                     <input
                         placeholder="Insira o cpf ou o cnpj" type="text"
                         value={cpf_cnpj} onChange={(e) => setCPF_CNPJ(e.target.value)}
@@ -124,43 +134,43 @@ export default function CriarCliente() {
                         value={rg_ie} onChange={(e) => setRG_IE(e.target.value)}
                     />
 
-                    <label>número:</label>
+                    <label>Endereço:</label>
                     <input
                         placeholder="Insira o número da moradia" type="text"
                         value={endereco} onChange={(e) => setEndereco(e.target.value)}
                     />
 
-                    <label>complemento:</label>
+                    <label>Complemento:</label>
                     <input
                         placeholder="Opcional" type="text"
                         value={complemento} onChange={(e) => setComplemento(e.target.value)}
                     />
 
-                    <label>cep:</label>
+                    <label>CEP:</label>
                     <input
                         placeholder="Insira o CEP" type="text"
                         value={cep} onBlur={handleCep} onChange={(e) => setCep(e.target.value)}
                     />
 
-                    <label>estado:</label>
+                    <label>Estado:</label>
                     <input
                         placeholder="Insira o Estado" type="text"
                         value={estado} onChange={(e) => setEstado(e.target.value)}
                     />
 
-                    <label>cidade:</label>
+                    <label>Cidade:</label>
                     <input
                         placeholder="Insira a Cidade" type="text"
                         value={cidade} onChange={(e) => setCidade(e.target.value)}
                     />
 
-                    <label>bairro:</label>
+                    <label>Bairro:</label>
                     <input
                         placeholder="Insira o Nome" type="text"
                         value={bairro} onChange={(e) => setBairro(e.target.value)}
                     />
 
-                    <label>rua:</label>
+                    <label>Rua:</label>
                     <input
                         placeholder="Insira o Nome" type="text"
                         value={rua} onChange={(e) => setRua(e.target.value)}

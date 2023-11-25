@@ -1,5 +1,10 @@
 Divisão de trabalhos
 
+O que falta:
+
+Criar Categorias
+Listar Categorias(talvez, só se quisermos)
+Produtos: Criar, listar, alterar e deletar com token
 
 Luiz
 
