@@ -1,0 +1,34 @@
+A porta do mysql é a 3306, a porta do servidor é a que você definir
+Que no caso é 3333 
+No DateTime tem o ponto de interrogação porque é um campo que
+Pode ser nulo.
+o createContext é utlizado para a manipulação de dados
+entre um arquivo e outro dentro da aplicação.
+o createContext é uma biblioteca.
+
+ENVIO DE IMAGENS PELO FRONT-END:
+
+fizemos um listar categorias no back-end, e dentro do index de produtos do front-end
+fizemos toda estrutura de formulário, e usamos useState e useEffect.
+após fazermos a constante do use State e a função assíncrona dentro do useEffect, fizemos um select
+dentro do form e mapeamos, chamando o nome das categorias tendo como value e key o ID
+para atribuir valor a ela criamos outro useState com o nome categoriaId para receber o valor,
+que é o ID da categoria. O value é uma informação para ser enviada e recuperada.
+Conseguimos visualizar o id na console, através da função no onSubmit do form.
+
+SEGURANÇA NO FRONT-END: 
+
+Para acessar as páginas do front-end eu preciso estar autenticado, tendo um token para 
+que isso seja possível. se eu não estiver autenticado no front-end, é necessário que
+o front retorne para a pagina inicial e tudo isso será baseado no token.
+o token é uma autorização para navegar no site.
+
+Arquivo @types na pasta express do back-end:
+reescrever um middleware de request do express adicionando o atributo user_id como sendo uma string.
+Habilitar no tsconfig.json:
+linha 34
+"typeRoots": [
+      "./src/@types"
+     ]
+
+o return faz com que o código pare por ali onde você quiser
