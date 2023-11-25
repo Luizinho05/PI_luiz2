@@ -48,10 +48,16 @@ export default function Dashboard() {
                     <button><Link to='/CriarCliente'>Criar Cliente</Link></button>
                 </div>
                 <div>
+                    <button><Link to='/CriarProduto'>Criar Produto</Link></button>
+                </div>
+                <div>
                     <button><Link to='/ListarUsuario'>Listar Usuário</Link></button>
                 </div>
                 <div>
                     <button><Link to="/ListarCliente">Listar Cliente</Link></button>
+                </div>
+                <div>
+                    <button><Link to='/ListarProduto'>Listar Produto</Link></button>
                 </div>
                 <br />
                 <button onClick={handleSair}>sair</button>

@@ -15,6 +15,9 @@ import AlterarUsuario from "./pages/DashboardPages/Usuarios/AlterarUsuario"
 import CriarCliente from "./pages/DashboardPages/Clientes/CriarClientes"
 import ListarCliente from "./pages/DashboardPages/Clientes/ListarCliente"
 import AlterarCliente from "./pages/DashboardPages/Clientes/AlterarCliente"
+import CriarProduto from './pages/DashboardPages/Produtos/CriarProdutos'
+import ListarProduto from './pages/DashboardPages/Produtos/ListarProdutos'
+import AlterarProduto from './pages/DashboardPages/Produtos/AlterarProdutos'
 
 export default function Rotas() {
     return (
@@ -33,6 +36,9 @@ export default function Rotas() {
                 <Route path="/CriarCliente" element={<CriarCliente />} />
                 <Route path="/ListarCliente" element={<ListarCliente />} />
                 <Route path="/AlteraCliente/:id" element={<AlterarCliente />} />
+                <Route path="/CriarProduto" element={<CriarProduto/>} />
+                <Route path='/ListarProduto' element={<ListarProduto/>} />
+                <Route path='AlteraProduto/:id' element={<AlterarProduto/>} />
             </Routes>
             <Footer />
         </BrowserRouter>
