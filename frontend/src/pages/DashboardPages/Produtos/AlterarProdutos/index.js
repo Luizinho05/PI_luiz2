@@ -61,17 +61,6 @@ export default function AlterarProduto(){
         listarProdutoUnico()
     }, [id])
 
-    useEffect(() => {
-        setAlteraNome(listarUnicoProduto.alteraNome)
-        setAlteraMarca(listarUnicoProduto.alteraMarca)
-        setAlteraTipo(listarUnicoProduto.alteraTipo)
-        setAlteraTamanho(listarUnicoProduto.alteraTamanho)
-        setAlteraQuantidade(listarUnicoProduto.alteraQuantidade)
-        setAlteraPreco(listarUnicoProduto.alteraPreco)
-        setAlteraCategoria(listarUnicoProduto.alteraCategoria)
-        setAlteraImg(listarUnicoProduto.alteraImg)
-    }, [listarUnicoProduto])
-
     function handleImagem(e){
         if (!e.target.files){
             return
@@ -81,6 +70,17 @@ export default function AlterarProduto(){
             setAlteraImg(image)
         }
        }
+
+       useEffect(() => {
+        setAlteraNome(listarUnicoProduto.alteraNome)
+        setAlteraMarca(listarUnicoProduto.alteraMarca)
+        setAlteraTipo(listarUnicoProduto.alteraTipo)
+        setAlteraTamanho(listarUnicoProduto.alteraTamanho)
+        setAlteraQuantidade(listarUnicoProduto.alteraQuantidade)
+        setAlteraPreco(listarUnicoProduto.alteraPreco)
+        setAlteraCategoria(listarUnicoProduto.alteraCategoria)
+        setAlteraImg(listarUnicoProduto.alteraImg)
+    }, [listarUnicoProduto])
 
     async function AlterarProduto(e) {
         e.preventDefault()
