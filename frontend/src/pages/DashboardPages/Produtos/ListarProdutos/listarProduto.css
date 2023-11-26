@@ -27,11 +27,11 @@
 }
 
   .valoresDefinidos{
-    background-color: rgb(37, 35, 35);
+    background-color: rgb(9, 107, 173);
     border: 2px solid #000000;
     font-size: 1.5rem;
     font-weight: bold;
-    color: white;
+    color: black;
     text-align: center;
     font-style: italic;
   }
@@ -42,6 +42,7 @@
                 font-weight:bold;
                 border: 2px solid #000000;
                 padding: 0.5rem;
+                text-align: center;
   }
 
   .Icons{

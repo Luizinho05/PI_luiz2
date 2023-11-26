@@ -83,7 +83,7 @@ export default function ListarProduto(){
                                     <td className='textoTabela'><img className='image' src={`http://localhost:5555/files/${item.img}`} alt=""/></td>
                                     <td className='textoTabela'>{item.preco}</td>
                                     <td className='textoTabela Icons'>
-                                        <Link to={`/AlteraProduto/${item.id}`}><FaPencilAlt size='1.4rem' color='blue'/></Link>
+                                        <Link to={`/AlteraProduto/${item.id}`}><FaPencilAlt size='1.4rem' color='black'/></Link>
                                     </td>
                                     <td className='textoTabela Icons'>
                                         <FaTrashAlt size='1.4rem' color='red' onClick={() => excluirProduto(item.id)}/>
