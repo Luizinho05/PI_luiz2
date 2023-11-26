@@ -19,16 +19,19 @@ import { ListarCategoriasController } from "./Controllers/Categorias/ListarCateg
 import { ListarUnicoUsuarioController } from "./Controllers/Usuario/ListarUnicoUsuarioController"
 import { ListarClienteUnicoController } from "./Controllers/Clientes/ListarClienteUnicoController"
 import { ListarProdutoUnicoController } from "./Controllers/Produtos/ListarProdutoUnicoController"
+import { ListarCategoriaUnicaController } from "./Controllers/Categorias/ListarCategoriaUnicaController"
 
 //Deletar
 import { DeletarUsuarioController } from "./Controllers/Usuario/DeletarUsuarioController"
 import { DeletarClientesController } from "./Controllers/Clientes/DeletarClientesController"
 import { ApagarProdutosController } from "./Controllers/Produtos/ApagarProdutosController"
+import { ExcluirCategoriaController } from "./Controllers/Categorias/excluirCategoriaController"
 
 //Alterar
 import { AlterarUsuarioController } from "./Controllers/Usuario/AlterarUsuarioController"
 import { AlterarClientesController } from "./Controllers/Clientes/AlterarClientesController"
 import { AlterarProdutoController } from "./Controllers/Produtos/AlterarProdutosController"
+import { AlterarCategoriaController } from "./Controllers/Categorias/AlterarCategoriaController"
 
 //Login
 import { LoginUsuarioController } from "./Controllers/Usuario/LoginUsuarioController"
@@ -64,8 +67,12 @@ router.put('/AlterarProduto', autenticado, upload.single('file'), new AlterarPro
 router.delete('/DeletarProduto', autenticado, new ApagarProdutosController().handle)
 
 //Categorias
+
 router.post('/CriarCategorias', autenticado, new CriarCategoriasController().handle)
 router.get('/ListarCategorias', autenticado, new ListarCategoriasController().handle)
+router.get('/ListarUnicaCategoria/:id', autenticado, new ListarCategoriaUnicaController().handle)
+router.put('/AlterarCategoria', autenticado, new AlterarCategoriaController().handle)
+router.delete('/ExcluirCategoria', autenticado, new ExcluirCategoriaController().handle)
 
 //Login
 router.get('/ListarUsuarioToken', autenticado, new ListarUsuarioTokenController().handle)

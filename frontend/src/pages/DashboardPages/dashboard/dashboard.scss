@@ -1,11 +1,9 @@
 .dashboard{
-    display: flex;
-    flex-direction:column;
-    row-gap: 1px;
-    grid-template-columns: 600px 600px;
-    box-sizing:border-box;
-    max-width: 800px;
-     margin: 1px;
+    display: grid;
+  row-gap: 1px;
+  grid-template-columns: 610px 610px;
+  max-width: 800px;
+  margin: 1px;
 
     button{
         margin-top: 1rem;

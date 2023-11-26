@@ -58,8 +58,8 @@ class AlterarClientesServices {
                     endereco: alteraEndereco
                 }
             })
+            return { dados: 'Dados Alterados com sucesso!' }
         }
-        return { dados: 'Dados Alterados com sucesso!' }
     }
 }
 
