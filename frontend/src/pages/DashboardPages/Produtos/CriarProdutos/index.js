@@ -121,35 +121,29 @@ export default function CriarProduto(){
                 <select
                 value={marca}
                 onChange={(e) =>setMarca(e.target.value)}>
-                    <option>Selecione a marca..</option>
-                    <option>Nike</option>
-                    <option>H&M</option>
-                    <option>Zara</option>
-                    <option>Louis Vuitton</option>
-                    <option>Adidas</option>
-                    <option>Uniqlo</option>
-                    <option>Hermès</option>
-                    <option>Rolex</option>
-                    <option>Gucci</option>
-                    <option>Cartier</option>
-                    <option>Balenciaga</option>
-                    <option>Prada</option>
-                    <option>Valentino</option>
-                    <option>Dior</option>
-                    <option>Moncler</option>
-                    <option>Bottega Veneta</option>
-                    <option>Fendi</option>
-                    <option>Off-White</option>
-                    <option>Mizuno</option>
-                    <option>Hering</option>
-                    <option>Dry</option>
-                    <option>Fila</option>
-                    <option>Puma</option>
-                    <option>Olympikus</option>
-                    <option>Paris</option>
-                    <option>Under Armour</option>
-                    <option>Umbro</option>
-                    <option>Oakley</option>
+                <option>Selecione a marca..</option>
+                <option>Nike</option>
+                <option>H&M</option>
+                <option>Zara</option>
+                <option>Louis Vuitton</option>
+                <option>Adidas</option>
+                <option>Uniqlo</option>
+                <option>Gucci</option>
+                <option>Balenciaga</option>
+                <option>Prada</option>
+                <option>Valentino</option>
+                <option>Moncler</option>
+                <option>Off-White</option>
+                <option>Mizuno</option>
+                <option>Hering</option>
+                <option>Dry</option>
+                <option>Fila</option>
+                <option>Puma</option>
+                <option>Olympikus</option>
+                <option>Paris</option>
+                <option>Under Armour</option>
+                <option>Umbro</option>
+                <option>Oakley</option>
                 </select>
                 <label>Tipo:</label>
                 <input 
