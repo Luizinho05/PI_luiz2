@@ -36,9 +36,9 @@ export default function Dashboard() {
     }
     
     return (
-        <div>
+        <div className='body'>
             <div>
-                <h1>Dashboard</h1>
+                <h1 className='nomeDash'>Dashboard</h1>
             </div>
             <div className='dashboard'>
                 <div>
@@ -69,7 +69,7 @@ export default function Dashboard() {
                 <button onClick={handleSair}>sair</button>
                 </div>
             </div>
-            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br/><br/><br/><br/><br/>
         </div>
     )
 }

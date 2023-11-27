@@ -62,7 +62,7 @@ router.delete('/DeletarCliente', autenticado, new DeletarClientesController().ha
 
 router.post('/CriarProduto', autenticado , upload.single('file'), new CriarProdutosController().handle)
 router.get('/ListarProduto', autenticado, new ListarProdutosController().handle)
-router.get('/ListarUnicoProduto/:id', autenticado, new ListarProdutoUnicoController().handle)
+router.get('/ListarUnicoProduto/:id', autenticado, upload.single('file'), new ListarProdutoUnicoController().handle)
 router.put('/AlterarProduto', autenticado, upload.single('file'), new AlterarProdutoController().handle)
 router.delete('/DeletarProduto', autenticado, new ApagarProdutosController().handle)
 

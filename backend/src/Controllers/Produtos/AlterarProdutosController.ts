@@ -6,10 +6,6 @@ class AlterarProdutoController {
         const { id, alteraNome, alteraMarca,
             alteraTamanho, alteraCategoria, alteraQuantidade,
             alteraPreco, alteraTipo, alteraImg } = req.body
-            
-        console.log(id, alteraNome, alteraMarca,
-            alteraTamanho, alteraCategoria, alteraQuantidade,
-            alteraPreco, alteraTipo, alteraImg)
 
         if (!req.file) {
             throw new Error('imagem com problema!')

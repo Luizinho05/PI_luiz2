@@ -22,6 +22,45 @@ export default function AlterarProduto() {
     const token = JSON.parse(iToken)
 
     useEffect(() => {
+        async function listarProdutoUnico() {
+            const response = await apiLocal.get(`/ListarUnicoProduto/${id}`, {
+                headers: {
+                    Authorization: 'Bearer ' + `${token}`
+                }
+            })
+            if (response.data.dados) {
+                navigation('/Login')
+                return
+            }
+            setListarUnicoProduto(response.data)
+        }
+        listarProdutoUnico()
+    }, [id])
+
+    useEffect(() => {
+        setAlteraNome(listarUnicoProduto.alteraNome)
+        setAlteraMarca(listarUnicoProduto.alteraMarca)
+        setAlteraTipo(listarUnicoProduto.alteraTipo)
+        setAlteraTamanho(listarUnicoProduto.alteraTamanho)
+        setAlteraQuantidade(listarUnicoProduto.alteraQuantidade)
+        setAlteraPreco(listarUnicoProduto.alteraPreco)
+        setAlteraCategoria(listarUnicoProduto.alteraCategoria)
+        setAlteraImg(listarUnicoProduto.alteraImg)
+    }, [listarUnicoProduto])
+
+    const { loginVerify } = useContext(AuthContext)
+
+    useEffect(() => {
+        const iToken = localStorage.getItem('@vistaseToken')
+        const token = JSON.parse(iToken)
+        if (!token) {
+            navigation('/Login')
+            return
+        }
+        loginVerify()
+    }, [])
+
+    useEffect(() => {
         async function loadingCategorias() {
             const resposta = await apiLocal.get('/ListarCategorias', {
                 headers: {
@@ -38,33 +77,6 @@ export default function AlterarProduto() {
         loadingCategorias()
     }, [categoria])
 
-    const { loginVerify } = useContext(AuthContext)
-
-    useEffect(() => {
-        const iToken = localStorage.getItem('@vistaseToken')
-        const token = JSON.parse(iToken)
-        if (!token) {
-            navigation('/Login')
-            return
-        }
-        loginVerify()
-    }, [])
-
-    useEffect(() => {
-        async function listarProdutoUnico() {
-            const response = await apiLocal.get(`/ListarUnicoProduto/${id}`, {
-                headers: {
-                    Authorization: 'Bearer ' + `${token}`
-                }
-            })
-            if (response.data.dados) {
-                navigation('/Login')
-                return
-            }
-            setListarUnicoProduto(response.data)
-        }
-        listarProdutoUnico()
-    }, [id])
 
     function handleImagem(e) {
         if (!e.target.files) {
@@ -75,25 +87,13 @@ export default function AlterarProduto() {
             setAlteraImg(image)
         }
     }
-
-    useEffect(() => {
-        setAlteraNome(listarUnicoProduto.alteraNome)
-        setAlteraMarca(listarUnicoProduto.alteraMarca)
-        setAlteraTipo(listarUnicoProduto.alteraTipo)
-        setAlteraTamanho(listarUnicoProduto.alteraTamanho)
-        setAlteraQuantidade(listarUnicoProduto.alteraQuantidade)
-        setAlteraPreco(listarUnicoProduto.alteraPreco)
-        setAlteraCategoria(listarUnicoProduto.alteraCategoria)
-        setAlteraImg(listarUnicoProduto.alteraImg)
-    }, [listarUnicoProduto])
-
     async function AlterarProduto(e) {
         e.preventDefault()
         try {
             const iToken = localStorage.getItem("@vistaseToken")
             const token = JSON.parse(iToken)
 
-            const response = await apiLocal.put("/AlterarProduto", {
+            const response = await apiLocal.put('/AlterarProduto', {
                 headers: {
                     Authorization: 'Bearer ' + `${token}`
                 },
@@ -108,7 +108,8 @@ export default function AlterarProduto() {
                 alteraImg
             })
             toast.info(response.data.dados)
-            navigation("/ListarProduto")
+            navigation('/ListarProduto')
+            
         } catch (err) {
             toast.error(err.response.data.error)
             return
