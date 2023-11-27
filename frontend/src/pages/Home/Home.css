@@ -3,14 +3,6 @@ a {
     font-size: 30px;
 }
 
-::-webkit-scrollbar{
-    display: none;
-}
-
-
-
-
-
 .aligntitle {
     text-align: center;
 }
