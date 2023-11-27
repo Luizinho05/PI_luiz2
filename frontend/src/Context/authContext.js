@@ -11,8 +11,6 @@ export default function AuthProvider({ children }) {
 
     const iToken = localStorage.getItem("@vistaseToken")
     const token = JSON.parse(iToken)
-    console.log("AuthContext", token)
-    console.log("AuthContext", user)
 
     async function loginVerify() {
         try {
