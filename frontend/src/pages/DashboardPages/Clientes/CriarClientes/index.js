@@ -33,9 +33,13 @@ export default function CriarCliente() {
                     Authorization: 'Bearer ' + `${token}`
                 }
             })
-            if(response.data.dados){
+            if(response.data.dados === !token){
                 navigation('/Login')
                 return
+            } else if (token){
+                navigation('/CriarCliente')
+                return
+                
             }
             setCriarCliente(response.data)
         }

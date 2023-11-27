@@ -17,25 +17,8 @@ export default function CriarProduto(){
     const [categoriaId, setCategoriaId] = useState('')
     const [imagem, setImagem] = useState(null)
 
-    const [criarProduto, setCriarProduto] = useState([''])
     const iToken = localStorage.getItem('@vistaseToken')
     const token = JSON.parse(iToken)
-
-    useEffect(() => {
-        async function loadProduto() {
-            const response = await apiLocal.post('/CriarProduto', {
-                headers: {
-                    Authorization: 'Bearer ' + `${token}`
-                }
-            })
-            if(response.data.dados){
-                navigation('/Login')
-                return
-            }
-            setCriarProduto(response.data)
-        }
-        loadProduto()
-    }, [criarProduto])
 
     useEffect (() => {
         async function loadingCategorias(){
@@ -44,6 +27,13 @@ export default function CriarProduto(){
                     Authorization: 'Bearer ' + `${token}`
                 }
             })
+            if(resposta.data.dados === !token){
+                navigation('/Login')
+                return
+            } else if (token){
+                navigation('/CriarProduto')
+                return
+            }
             setCategorias(resposta.data)
         }
         loadingCategorias()
