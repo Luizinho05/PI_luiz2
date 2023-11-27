@@ -11,6 +11,7 @@ export function autenticado(
     next: NextFunction
 ) {
     const authToken = req.headers.authorization
+    console.log(authToken)
 
 
     if (!authToken) {

@@ -10,7 +10,7 @@ export default function Dashboard() {
 
     useEffect(() => {
         if (!token) {
-            navigation('/')
+            navigation('/Login')
             return
         } else if (token) {
             async function verificaToken() {
@@ -20,7 +20,7 @@ export default function Dashboard() {
                     }
                 })
                 if (resposta.data.dados) {
-                    navigation('/')
+                    navigation('/Login')
                     return
                 } else if (resposta.data.id) {
                     navigation('/Dashboard')
@@ -32,9 +32,9 @@ export default function Dashboard() {
 
     function handleSair() {
         localStorage.removeItem("@vistaseToken")
-        navigation("/")
+        navigation("/Login")
     }
-    //ListarUsuario
+    
     return (
         <div>
             <div>

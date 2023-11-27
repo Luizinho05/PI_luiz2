@@ -4,8 +4,11 @@ import { AlterarProdutosServices } from '../../Services/Produtos/AlterarProdutos
 class AlterarProdutoController {
     async handle(req: Request, res: Response) {
         const { id, alteraNome, alteraMarca,
-        alteraTamanho, alteraCategoria, alteraQuantidade,
-        alteraPreco, alteraTipo, alteraImg } = req.body
+            alteraTamanho, alteraCategoria, alteraQuantidade,
+            alteraPreco, alteraTipo, alteraImg } = req.body
+        console.log(id, alteraNome, alteraMarca,
+            alteraTamanho, alteraCategoria, alteraQuantidade,
+            alteraPreco, alteraTipo, alteraImg)
 
         if (!req.file) {
             throw new Error('imagem com problema!')

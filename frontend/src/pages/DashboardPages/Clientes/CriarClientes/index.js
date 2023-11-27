@@ -36,11 +36,10 @@ export default function CriarCliente() {
             if(response.data.dados === !token){
                 navigation('/Login')
                 return
-            } else if (token){
-                navigation('/CriarCliente')
-                return
-                
-            }
+           } else if(token){
+            navigation('/CriarCliente')
+            return
+           }
             setCriarCliente(response.data)
         }
         loadClientes()

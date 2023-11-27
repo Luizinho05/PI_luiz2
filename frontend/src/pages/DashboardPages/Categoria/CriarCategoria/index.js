@@ -19,13 +19,10 @@ export default function CriarCategoria(){
                     Authorization: 'Bearer ' + `${token}`
                 }
             })
-            if(response.data.dados === !token){
+            if(response.data.dados){
                 navigation('/Login')
                 return
-            } else if(token){
-                navigation('/CriarCategoria')
-                return
-            }
+           }
             setCriarCategoria(response.data)
         }
         loadCategoria()

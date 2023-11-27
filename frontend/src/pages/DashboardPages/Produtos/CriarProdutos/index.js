@@ -27,13 +27,10 @@ export default function CriarProduto(){
                     Authorization: 'Bearer ' + `${token}`
                 }
             })
-            if(resposta.data.dados === !token){
+            if(resposta.data.dados){
                 navigation('/Login')
                 return
-            } else if (token){
-                navigation('/CriarProduto')
-                return
-            }
+           }
             setCategorias(resposta.data)
         }
         loadingCategorias()
@@ -86,6 +83,7 @@ export default function CriarProduto(){
 
     } catch(err){
       toast.error('Token Inválido!')
+      return
     }
     setNome('')
     setMarca('')
