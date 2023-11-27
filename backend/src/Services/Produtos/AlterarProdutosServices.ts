@@ -13,34 +13,53 @@ interface AlterarProduto {
 }
 
 class AlterarProdutosServices {
-    async execute({
-      id,
-	  alteraNome,
-	  alteraMarca,
-	  alteraTamanho,
-	  alteraCategoria,
-	  alteraQuantidade,
-	  alteraPreco,
-	  alteraTipo,
-	  alteraImg
-	}: AlterarProduto){
-       
-		await prismaClient.products.update({
-			where: {
-				id: id
-			},
-			data:{
-				nome: alteraNome,
-				marca: alteraMarca,
-				tamanho: alteraTamanho,
-				categoriaId: alteraCategoria,
-				quantidade: alteraQuantidade,
-				preco: alteraPreco,
-			    tipo: alteraTipo,
-				img: alteraImg
-			}
-		})
-		return { dados: 'Produto Alterado com sucesso!' }
+	async execute({
+		id,
+		alteraNome,
+		alteraMarca,
+		alteraTamanho,
+		alteraCategoria,
+		alteraQuantidade,
+		alteraPreco,
+		alteraTipo,
+		alteraImg
+	}: AlterarProduto) {
+
+		if (alteraNome === "" || alteraMarca === "" || alteraTamanho === "" ||
+			alteraCategoria === "" || alteraQuantidade === "" || alteraTipo === "" || alteraImg === "") {
+			await prismaClient.products.update({
+				where: {
+					id: id
+				},
+				data: {
+					nome: "null",
+					marca: "null",
+					tamanho: "null",
+					categoriaId: "null",
+					quantidade: "null",
+					preco: alteraPreco,
+					tipo: "null",
+					img: "null"
+				}
+			})
+		} else {
+			await prismaClient.products.update({
+				where: {
+					id: id
+				},
+				data: {
+					nome: alteraNome,
+					marca: alteraMarca,
+					tamanho: alteraTamanho,
+					categoriaId: alteraCategoria,
+					quantidade: alteraQuantidade,
+					preco: alteraPreco,
+					tipo: alteraTipo,
+					img: alteraImg
+				}
+			})
+			return { dados: 'Produto Alterado com sucesso!' }
+		}
 	}
 }
 

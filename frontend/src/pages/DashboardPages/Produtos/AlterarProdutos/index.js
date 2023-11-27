@@ -17,7 +17,6 @@ export default function AlterarProduto() {
     const [alteraQuantidade, setAlteraQuantidade] = useState('')
     const [alteraPreco, setAlteraPreco] = useState('')
     const [alteraCategoria, setAlteraCategoria] = useState('')
-    const [alteraImg, setAlteraImg] = useState(null)
     const iToken = localStorage.getItem('@vistaseToken')
     const token = JSON.parse(iToken)
 
@@ -45,7 +44,6 @@ export default function AlterarProduto() {
         setAlteraQuantidade(listarUnicoProduto.alteraQuantidade)
         setAlteraPreco(listarUnicoProduto.alteraPreco)
         setAlteraCategoria(listarUnicoProduto.alteraCategoria)
-        setAlteraImg(listarUnicoProduto.alteraImg)
     }, [listarUnicoProduto])
 
     const { loginVerify } = useContext(AuthContext)
@@ -77,16 +75,6 @@ export default function AlterarProduto() {
         loadingCategorias()
     }, [categoria])
 
-
-    function handleImagem(e) {
-        if (!e.target.files) {
-            return
-        }
-        const image = e.target.files[0]
-        if (image.type === 'image/png' || image.type === 'image/jpeg' || image.type === 'image/jpg') {
-            setAlteraImg(image)
-        }
-    }
     async function AlterarProduto(e) {
         e.preventDefault()
         try {
@@ -104,8 +92,11 @@ export default function AlterarProduto() {
                 alteraCategoria,
                 alteraQuantidade,
                 alteraPreco,
-                alteraTipo,
-                alteraImg
+                alteraTipo
+            }, {
+                headers: {
+                    Authorization: 'Bearer ' + `${token}`
+                }
             })
             toast.info(response.data.dados)
             navigation('/ListarProduto')
@@ -206,13 +197,6 @@ export default function AlterarProduto() {
                         value={alteraPreco}
                         onChange={(e) => setAlteraPreco(e.target.value)}
                     />
-                    <label>Imagem:</label>
-                    <input
-                        type='file'
-                        accept='image/jpeg, image/png, image/jpg'
-                        onChange={handleImagem}
-                    />
-
                     <button type='submit'>Alterar</button>
                 </form>
             </div>

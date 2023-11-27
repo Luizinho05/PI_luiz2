@@ -7,11 +7,6 @@ class AlterarProdutoController {
             alteraTamanho, alteraCategoria, alteraQuantidade,
             alteraPreco, alteraTipo, alteraImg } = req.body
 
-        if (!req.file) {
-            throw new Error('imagem com problema!')
-        } else {
-
-            const { originalname, filename: alteraImg } = req.file
             const alterarProdutosServices = new AlterarProdutosServices()
             const alterar = await alterarProdutosServices.execute({
                 id,
@@ -25,9 +20,6 @@ class AlterarProdutoController {
                 alteraImg
             })
             return res.json(alterar)
-
-        }
-
     }
 }
 
