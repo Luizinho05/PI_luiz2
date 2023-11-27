@@ -8,6 +8,25 @@ import './insertCategoria.scss'
 export default function CriarCategoria(){
     const navigation = useNavigate()
     const [nome, setNome] = useState('')
+    const iToken = localStorage.getItem('@vistaseToken')
+    const token = JSON.parse(iToken)
+    const [criarCategoria, setCriarCategoria] = useState([''])
+
+    useEffect(() => {
+        async function loadCategoria() {
+            const response = await apiLocal.post('/CriarCategorias', {
+                headers: {
+                    Authorization: 'Bearer ' + `${token}`
+                }
+            })
+            if(response.data.dados){
+                navigation('/Login')
+                return
+            }
+            setCriarCategoria(response.data)
+        }
+        loadCategoria()
+    }, [criarCategoria])
 
     const { loginVerify } = useContext(AuthContext)
 

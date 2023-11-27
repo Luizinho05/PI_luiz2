@@ -8,21 +8,6 @@ import "./insert.scss"
 
 export default function CriarCliente() {
     const navigation = useNavigate()
-
-    const { loginVerify } = useContext(AuthContext)
-
-
-    useEffect(() => {
-        const iToken = localStorage.getItem('@vistaseToken')
-        const token = JSON.parse(iToken)
-
-        if (!token) {
-            navigation('/Login')
-            return
-        }
-        loginVerify()
-    }, [])
-
     const [nome, setNome] = useState("")
     const [idade, setIdade] = useState("")
     const [cpf_cnpj, setCPF_CNPJ] = useState("")
@@ -37,6 +22,38 @@ export default function CriarCliente() {
     const [endereco, setEndereco] = useState("")
 
     const [buscaCep, setBuscaCep] = useState("")
+    const iToken = localStorage.getItem('@vistaseToken')
+    const token = JSON.parse(iToken)
+    const [criarCliente, setCriarCliente] = useState([''])
+
+    useEffect(() => {
+        async function loadClientes() {
+            const response = await apiLocal.post('/CriarCliente', {
+                headers: {
+                    Authorization: 'Bearer ' + `${token}`
+                }
+            })
+            if(response.data.dados){
+                navigation('/Login')
+                return
+            }
+            setCriarCliente(response.data)
+        }
+        loadClientes()
+    }, [criarCliente])
+
+    const { loginVerify } = useContext(AuthContext)
+
+    useEffect(() => {
+        const iToken = localStorage.getItem('@vistaseToken')
+        const token = JSON.parse(iToken)
+
+        if (!token) {
+            navigation('/Login')
+            return
+        }
+        loginVerify()
+    }, [])
 
     async function handleCep() {
         if(cep.length < 8 || cep.length > 8){
@@ -68,7 +85,7 @@ export default function CriarCliente() {
         try {
             const iToken = localStorage.getItem('@vistaseToken')
             const token = JSON.parse(iToken)
-           
+        
             await apiLocal.post("/CriarCliente", {
                 nome: nome,
                 idade: idade,
