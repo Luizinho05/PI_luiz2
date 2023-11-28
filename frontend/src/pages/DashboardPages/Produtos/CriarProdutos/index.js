@@ -128,27 +128,25 @@ export default function CriarProduto(){
                 onChange={(e) =>setMarca(e.target.value)}>
                 <option>Selecione a marca..</option>
                 <option>Nike</option>
-                <option>H&M</option>
-                <option>Zara</option>
-                <option>Louis Vuitton</option>
-                <option>Adidas</option>
-                <option>Uniqlo</option>
-                <option>Gucci</option>
-                <option>Balenciaga</option>
-                <option>Prada</option>
-                <option>Valentino</option>
-                <option>Moncler</option>
-                <option>Off-White</option>
-                <option>Mizuno</option>
-                <option>Hering</option>
-                <option>Dry</option>
-                <option>Fila</option>
-                <option>Puma</option>
-                <option>Olympikus</option>
-                <option>Paris</option>
-                <option>Under Armour</option>
-                <option>Umbro</option>
-                <option>Oakley</option>
+                        <option>H&M</option>
+                        <option>Zara</option>
+                        <option>Louis Vuitton</option>
+                        <option>Adidas</option>
+                        <option>Uniqlo</option>
+                        <option>Gucci</option>
+                        <option>Balenciaga</option>
+                        <option>Prada</option>
+                        <option>Valentino</option>
+                        <option>Moncler</option>
+                        <option>Mizuno</option>
+                        <option>Dry</option>
+                        <option>Fila</option>
+                        <option>Puma</option>
+                        <option>Olympikus</option>
+                        <option>Paris</option>
+                        <option>Under Armour</option>
+                        <option>Umbro</option>
+                        <option>Oakley</option>
                 </select>
                 <label>Tipo:</label>
                 <input 

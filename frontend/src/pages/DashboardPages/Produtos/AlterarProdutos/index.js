@@ -151,9 +151,7 @@ export default function AlterarProduto() {
                         <option>Prada</option>
                         <option>Valentino</option>
                         <option>Moncler</option>
-                        <option>Off-White</option>
                         <option>Mizuno</option>
-                        <option>Hering</option>
                         <option>Dry</option>
                         <option>Fila</option>
                         <option>Puma</option>
