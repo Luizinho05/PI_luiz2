@@ -61,6 +61,7 @@ export default function CriarCategoria(){
               }
            })
            toast.success('Categoria registrada com sucesso!')
+           navigation('/ListarCategoria')
         }catch(err){
           toast.error(err.response.data.error)
           return

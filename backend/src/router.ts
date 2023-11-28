@@ -43,7 +43,7 @@ const upload = multer(uploadConfig.upload('./tmp'))
 
 //Usuário
 
-router.post("/CriarUsuario", new CriarUsuarioController().handle)
+router.post("/CriarUsuario", autenticado, new CriarUsuarioController().handle)
 router.post("/LoginUsuario", new LoginUsuarioController().handle)
 router.get("/ListarUsuarios", autenticado, new ListarUsuarioController().handle)
 router.get("/ListarUnicoUsuario/:id", autenticado, new ListarUnicoUsuarioController().handle)

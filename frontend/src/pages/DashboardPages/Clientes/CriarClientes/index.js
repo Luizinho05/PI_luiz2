@@ -108,6 +108,7 @@ export default function CriarCliente() {
                 }
             })
             toast.success("Cliente registrado com êxito.")
+            navigation('/ListarCliente')
         } catch (err) {
             toast.error(err.response.data.error)
             return

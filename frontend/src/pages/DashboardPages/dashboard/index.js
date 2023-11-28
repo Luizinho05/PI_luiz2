@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { BsBoxArrowLeft } from "react-icons/bs";
 import apiLocal from '../../../API/apiLocal/api'
 import './dashboard.scss'
 
@@ -37,8 +38,9 @@ export default function Dashboard() {
     
     return (
         <div className='body'>
-            <div>
+            <div className='textoDashboard'>
                 <h1 className='nomeDash'>Dashboard</h1>
+                <button className='sair' onClick={handleSair}><BsBoxArrowLeft size='1.7rem' color='white' /></button>
             </div>
             <div className='dashboard'>
                 <div>
@@ -64,9 +66,6 @@ export default function Dashboard() {
                 </div>
                 <div>
                     <button><Link to='/ListarCategoria'>Listar Categoria</Link></button>
-                </div>
-                <div>
-                <button onClick={handleSair}>sair</button>
                 </div>
             </div>
             <br /><br /><br /><br /><br /><br /><br/><br/><br/><br/><br/>

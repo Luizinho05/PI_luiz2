@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import apiLocal from '../../../../API/apiLocal/api'
 import { toast } from 'react-toastify'
+import { AuthContext } from '../../../../Context/authContext'
+import apiLocal from '../../../../API/apiLocal/api'
 import './insert.scss'
 
 export default function CriarUsuario(){
@@ -9,6 +10,40 @@ export default function CriarUsuario(){
     const [ nome, setNome ] = useState('')
     const [ email, setEmail ] = useState('')
     const [ password, setPassword ] = useState('')
+    const iToken = localStorage.getItem('@vistaseToken')
+    const token = JSON.parse(iToken)
+    const [criarUsuario, setCriarUsuario] = useState([''])
+
+    useEffect(() => {
+        async function loadUsuarios() {
+            const response = await apiLocal.post('/CriarUsuario', {
+                headers: {
+                    Authorization: 'Bearer ' + `${token}`
+                }
+            })
+            if(response.data.dados === !token){
+                navigation('/Login')
+                return
+           } else if(token){
+            navigation('/CriarUsuario')
+            return
+           }
+            setCriarUsuario(response.data)
+        }
+        loadUsuarios()
+    }, [criarUsuario])
+
+    const { loginVerify } = useContext(AuthContext)
+
+    useEffect(() => {
+      const iToken = localStorage.getItem('@vistaseToken')
+      const token = JSON.parse(iToken)
+      if(!token){
+        navigation('/Login')
+        return
+      }
+      loginVerify()
+    }, [])
 
     async function handleCadastrar(e){
         e.preventDefault()
@@ -17,13 +52,20 @@ export default function CriarUsuario(){
             toast.warn('Campos em branco não são permitidos!')
             return
            }
+           const iToken = localStorage.getItem('@vistaseToken')
+           const token = JSON.parse(iToken)
+
            await apiLocal.post('/CriarUsuario', {
-             nome,
-             email,
-             password
+             nome: nome,
+             email: email,
+             password: password
+           }, {
+            headers: {
+              Authorization: 'Bearer ' + `${token}`
+            }
            })
            toast.success('Usuário cadastrado com sucesso!')
-           navigation('/Login')
+           navigation('/ListarUsuario')
         } catch (err){
            toast.error(err.response.data.error)
            return
