@@ -7,8 +7,7 @@
     background-color: black;
     color: white;
     padding: 1;
+    overflow: none;
+    overflow-y: none;
 }
 
-#element::-webkit-scrollbar {
-    display: none;
-}

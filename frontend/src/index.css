@@ -6,7 +6,6 @@
 
 ::-webkit-scrollbar{
     width: 15px;
-    
 }
 
 ::-webkit-scrollbar-track{
@@ -16,4 +15,8 @@
 ::-webkit-scrollbar-thumb{
     background-color: black;
     border-radius: 100px;
+}
+
+body{
+    overflow-x: hidden;
 }
