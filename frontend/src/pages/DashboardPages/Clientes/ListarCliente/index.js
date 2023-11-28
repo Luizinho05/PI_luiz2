@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import apiLocal from "../../../../API/apiLocal/api"
 import { toast } from "react-toastify";
 import { FaTrashAlt, FaPencilAlt } from 'react-icons/fa'
+import { IoIosArrowBack } from "react-icons/io";
 import './listarCliente.css'
  
 export default function ListarCliente() {
@@ -78,6 +79,7 @@ export default function ListarCliente() {
                 </article>
                 )
             })}
+            <Link to='/Dashboard'><IoIosArrowBack size='1.4rem' color='blue'/></Link>
             <br/><br/><br/><br/>
         </div>
     )

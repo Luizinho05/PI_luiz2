@@ -22,7 +22,7 @@ class CriarProdutosServices{
     img,
     tipo
    }: CriarProduto){
-        if(!nome || !categoriaId || !marca || !tamanho || 
+        if(!nome || !categoriaId || !tamanho || 
             !quantidade || !preco || !img || !tipo){
             throw new Error('Campos em branco não são permitidos!')
             }

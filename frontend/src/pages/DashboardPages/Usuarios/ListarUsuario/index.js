@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { FaTrashAlt, FaPencilAlt } from 'react-icons/fa'
+import { IoIosArrowBack } from "react-icons/io";
 import { toast } from 'react-toastify'
 import { AuthContext } from '../../../../Context/authContext'
 import apiLocal from '../../../../API/apiLocal/api'
@@ -76,6 +77,7 @@ return(
                 </article>
                     )
                 })}
+                <Link to='/Dashboard'><IoIosArrowBack size='1.4rem' color='blue'/></Link>
                 <br/><br/><br/><br/>
                 </div>
              )

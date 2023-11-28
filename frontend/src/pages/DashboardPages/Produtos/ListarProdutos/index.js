@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import { AuthContext } from '../../../../Context/authContext'
 import { useNavigate, Link } from 'react-router-dom'
 import { FaTrashAlt, FaPencilAlt } from 'react-icons/fa'
+import { IoIosArrowBack } from "react-icons/io";
 import { toast } from 'react-toastify'
 import apiLocal from '../../../../API/apiLocal/api'
 import './listarProduto.css'
@@ -95,7 +96,8 @@ export default function ListarProduto(){
                     </thead>
                 </table>
             </div>
-            <Link to='/Dashboard'>Voltar</Link>
+            <Link to='/Dashboard'><IoIosArrowBack size='1.4rem' color='blue'/></Link>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         </div>
     )
 }

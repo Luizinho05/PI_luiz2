@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { AuthContext } from '../../../../Context/authContext'
 import apiLocal from '../../../../API/apiLocal/api'
 import { toast } from 'react-toastify'
 import './insert.scss'
@@ -10,19 +9,6 @@ export default function CriarUsuario(){
     const [ nome, setNome ] = useState('')
     const [ email, setEmail ] = useState('')
     const [ password, setPassword ] = useState('')
-
-    const { loginVerify } = useContext(AuthContext)
-
-    useEffect(() => {
-        const iToken = localStorage.getItem('@vistaseToken')
-        const token = JSON.parse(iToken)
-
-        if(!token){
-            navigation('/Login')
-            return
-        }
-        loginVerify()
-    }, [])
 
     async function handleCadastrar(e){
         e.preventDefault()
@@ -37,6 +23,7 @@ export default function CriarUsuario(){
              password
            })
            toast.success('Usuário cadastrado com sucesso!')
+           navigation('/Login')
         } catch (err){
            toast.error(err.response.data.error)
            return
