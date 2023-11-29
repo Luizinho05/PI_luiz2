@@ -47,25 +47,25 @@ export default function Dashboard() {
                     <button><Link to='/CriarUsuario'>Criar Usuário</Link></button>
                 </div>
                 <div>
-                    <button><Link to='/CriarCliente'>Criar Cliente</Link></button>
+                    <button><Link to='/ListarUsuario'>Listar Usuário</Link></button>
                 </div>
                 <div>
                     <button><Link to='/CriarProduto'>Criar Produto</Link></button>
                 </div>
                 <div>
+                   <button><Link to='/ListarProduto'>Listar Produto</Link></button>
+                </div>
+                <div>
                     <button><Link to='/CriarCategoria'>Criar Categoria</Link></button>
                 </div>
                 <div>
-                    <button><Link to='/ListarUsuario'>Listar Usuário</Link></button>
+                    <button><Link to='/ListarCategoria'>Listar Categoria</Link></button>
+                </div>
+                <div>
+                    <button><Link to='/CriarCliente'>Criar Cliente</Link></button>
                 </div>
                 <div>
                     <button><Link to="/ListarCliente">Listar Cliente</Link></button>
-                </div>
-                <div>
-                    <button><Link to='/ListarProduto'>Listar Produto</Link></button>
-                </div>
-                <div>
-                    <button><Link to='/ListarCategoria'>Listar Categoria</Link></button>
                 </div>
             </div>
             <br /><br /><br /><br /><br /><br /><br/><br/><br/><br/><br/><br/><br/>
