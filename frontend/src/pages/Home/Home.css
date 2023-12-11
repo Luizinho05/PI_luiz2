@@ -5,11 +5,10 @@ a {
 
 .aligntitle {
     text-align: center;
+    font-weight: bold;
+    font-size: 30px;
 }
 
-.aligncard {
-    text-align: center;
-}
 
 .info{
     text-decoration: underline;
@@ -29,4 +28,11 @@ a:link {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.imagens{
+    max-width: 35rem;
+    height: 100%;
+    border-radius: 10px;
+   justify-content: center;
 }

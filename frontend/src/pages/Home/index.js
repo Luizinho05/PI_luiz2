@@ -1,55 +1,114 @@
 import "./Home.css"
-import placeholder from "../../imgs/placeholder.png"
-
+import Carousel from 'react-bootstrap/Carousel'
+import CasualFeminina1 from '../../imgs/regata-branca-feminina.jpg'
+import CasualFeminina2 from '../../imgs/casualF2.jpg'
+import CasualFeminina3 from '../../imgs/casualF3.png'
+import CasualMascuilino1 from '../../imgs/regatas-casual-masculino.jpg'
+import CasualMasculino2 from '../../imgs/casualM2.jpg'
+import FormalFeminino1 from '../../imgs/formalF1.png'
+import FormalFeminino2 from '../../imgs/formalF2.png'
+import FormalFeminino3 from '../../imgs/formalF3.png'
+import FormalMasculino1 from '../../imgs/formalM1.png'
+import FormalMasculino2 from '../../imgs/formalM2.png'
+import FormalMasculino3 from '../../imgs/formalM3.png'
 
 export default function Home() {
     return (
-        <div className="home">
+        <div>
+            <div className="home">
+                <br />
+                <p className="aligntitle">Dê uma cara nova a você!</p>
+                <p className="aligntitle">O que você está procurando hoje?</p> <br />
 
-            <h1 className="aligntitle">Dê uma cara nova a você!</h1><br />
-            <h1 className="aligntitle">O que você está procurando hoje?</h1> <br />
-
-
-            <div className="aligncard">
-                <div className="container-fluid container-sm">
-                    <div className="row">
-
-                        <div className="col ">
-
-                            <div className="card bg-dark" >
-                                <img className="card-img-top" src={placeholder}  href="/RC" alt="" />
-                                <div className="card-body">
-                                    <a role="button" className="btn btn-lg btn-primary text-light" href="/RC">Que tal algo Casual?</a>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <div className="col">
-
-                            <div className="card bg-dark" >
-                                <img className="card-img-top" src={placeholder}  href="/RF" alt="" />
-                                <div className="card-body">
-                                    <a href="/RF" role="button" className="btn btn-lg btn-primary text-light" >Ou algo mais Formal?</a>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
+                <Carousel data-bs-theme="dark">
+                    <Carousel.Item>
+                        <img
+                            className="imagens"
+                            src={CasualFeminina1}
+                            alt=''
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="imagens"
+                            src={CasualFeminina2}
+                            alt=''
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="imagens"
+                            src={CasualFeminina3}
+                            alt=''
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="imagens"
+                            src={CasualMascuilino1}
+                            alt=''
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="imagens"
+                            src={CasualMasculino2}
+                            alt=''
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="imagens"
+                            src={FormalFeminino1}
+                            alt=''
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="imagens"
+                            src={FormalFeminino2}
+                            alt=''
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="imagens"
+                            src={FormalFeminino3}
+                            alt=''
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="imagens"
+                            src={FormalMasculino1}
+                            alt=''
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="imagens"
+                            src={FormalMasculino2}
+                            alt=''
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="imagens"
+                            src={FormalMasculino3}
+                            alt=''
+                        />
+                    </Carousel.Item>
+                </Carousel>
             </div>
 
-            <br /> <br /> <br />
-            
-            <div className="aligntitle">
-            <iframe className="infoimg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14763.337608019845!2d-49.08929326693312!3d-22.322101749732358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bf67984ef06eb3%3A0x83b97cd89092ade3!2sLoja%20TIM%20-%20Bauru%20Batista%20de%20Carvalho!5e0!3m2!1spt-BR!2sbr!4v1700791531400!5m2!1spt-BR!2sbr" width="500" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" /><br />
-            <p className="info">Loja sob-reforma</p>
-            <a>Encontrou algum erro ou gostaria de enviar alguma recomendação?</a>
-            <a href="/contato"> Contate-nos</a>
-            </div> 
-            <br/><br/><br/>
+            <br /><br /><br />
+            <div className="aligntitle home">
+                <iframe className="infoimg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14763.337608019845!2d-49.08929326693312!3d-22.322101749732358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bf67984ef06eb3%3A0x83b97cd89092ade3!2sLoja%20TIM%20-%20Bauru%20Batista%20de%20Carvalho!5e0!3m2!1spt-BR!2sbr!4v1700791531400!5m2!1spt-BR!2sbr" width="500" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" /><br />
+                <p className="info">Loja sob-reforma</p>
+                <a>Encontrou algum erro ou gostaria de enviar alguma recomendação?</a>
+                <a href="/contato"> Contate-nos</a>
+            </div>
+            <br /><br /><br />
         </div>
     )
 }

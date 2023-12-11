@@ -27,19 +27,35 @@ class CriarProdutosServices{
             throw new Error('Campos em branco não são permitidos!')
             }
 
-            await prismaClient.products.create({
-                data:{
-                    nome: nome,
-                    marca: marca,
-                    tamanho: tamanho,
-                    quantidade: quantidade,
-                    preco: preco,
-                    img: img,
-                    tipo: tipo,
-                    categoriaId: categoriaId
-                }
-            })
-            return { dados: 'Produto locado com sucesso!' }
+            if(marca === ''){
+                await prismaClient.products.create({
+                    data:{
+                        nome: nome,
+                        marca: "null",
+                        tamanho: tamanho,
+                        quantidade: quantidade,
+                        preco: preco,
+                        img: img,
+                        tipo: tipo,
+                        categoriaId: categoriaId
+                    }
+                })
+                
+            } else {
+                await prismaClient.products.create({
+                    data:{
+                        nome: nome,
+                        marca: marca,
+                        tamanho: tamanho,
+                        quantidade: quantidade,
+                        preco: preco,
+                        img: img,
+                        tipo: tipo,
+                        categoriaId: categoriaId
+                    }
+                })
+                return { dados: 'Produto locado com sucesso!' }
+            }
    }
 }
 
