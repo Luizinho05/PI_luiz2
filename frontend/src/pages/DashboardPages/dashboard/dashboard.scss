@@ -1,9 +1,9 @@
 .dashboard{
-    display: grid;
-  row-gap: 1px;
+display: grid;
+  row-gap: 80px;
   grid-template-columns: 620px 620px;
   max-width: 800px;
-  margin: 1px;
+  margin: 10px;
 
     button{
         margin-top: 1rem;
@@ -43,11 +43,11 @@
             font-weight: bold;
             background-color: #1253f5;
             padding: 0.3rem;
-            color: #FFFFFF;
         }
     }
 .nomeDash{
     color: white;
+    margin-top: 0.30rem;
 }
 
 }
