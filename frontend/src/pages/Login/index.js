@@ -69,7 +69,7 @@ export default function Login() {
     return (
         <div className='container-fluid alignform'>
             <div>
-               <h1>Login Vista-se !</h1>
+               <h1>Login Funcionário</h1>
             </div>
             <div className='formInicio'>
                 <form onSubmit={handleLogin}>
@@ -89,7 +89,7 @@ export default function Login() {
 
                     <button type='submit'>Enviar</button>
                 </form>
-                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br/>
+                <br /><br /><br /><br />
             </div>
         </div>
     )
