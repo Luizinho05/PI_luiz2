@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../../../../Context/authContext'
+import { IoIosArrowBack } from "react-icons/io";
 import apiLocal from '../../../../API/apiLocal/api'
 import './alteraCategoria.scss'
 
@@ -76,6 +77,7 @@ useEffect(() => {
               <form onSubmit={AlterarCategoria}>
                 <label>Nome:</label>
                 <input
+                placeholder='insira o nome'
                 type='text'
                 value={alteraNome}
                 onChange={(e) => setAlteraNome(e.target.value)}
@@ -84,6 +86,7 @@ useEffect(() => {
                 <button type='submit'>Alterar</button>
               </form>
             </div>
+            <Link to='/ListarCategoria'><IoIosArrowBack size='1.4rem' color='blue'/></Link>
             <br/><br/><br/><br/>
         </div>
     )

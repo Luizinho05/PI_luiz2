@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../../../../Context/authContext'
+import { IoIosArrowBack } from "react-icons/io";
 import apiLocal from '../../../../API/apiLocal/api'
 import './AlterarProduto.scss'
 
@@ -100,7 +101,7 @@ export default function AlterarProduto() {
             })
             toast.info(response.data.dados)
             navigation('/ListarProduto')
-            
+
         } catch (err) {
             toast.error(err.response.data.error)
             return
@@ -131,6 +132,7 @@ export default function AlterarProduto() {
                     </select>
                     <label>Nome:</label>
                     <input
+                        placeholder='digite o nome'
                         type='text'
                         value={alteraNome}
                         onChange={(e) => setAlteraNome(e.target.value)}
@@ -163,6 +165,7 @@ export default function AlterarProduto() {
                     </select>
                     <label>Tipo:</label>
                     <input
+                        placeholder='digite o tipo'
                         type='text'
                         value={alteraTipo}
                         onChange={(e) => setAlteraTipo(e.target.value)}
@@ -185,19 +188,22 @@ export default function AlterarProduto() {
                     </select>
                     <label>Quantidade:</label>
                     <input
+                        placeholder='digite a quantidade'
                         type='number'
                         value={alteraQuantidade}
                         onChange={(e) => setAlteraQuantidade(e.target.value)}
                     />
                     <label>Preço:</label>
                     <input
+                        placeholder='digite o preço'
                         type='text'
                         value={alteraPreco}
                         onChange={(e) => setAlteraPreco(e.target.value)}
-                    />
+                    /><br/>
                     <button type='submit'>Alterar</button>
                 </form>
             </div>
+            <Link to='/ListarProduto'><IoIosArrowBack size='1.4rem' color='blue' /></Link>
             <br /><br /><br /><br />
         </div>
     )

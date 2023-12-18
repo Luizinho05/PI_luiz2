@@ -2,9 +2,22 @@
     font-size: 3rem;
     font-style: italic;
     font-family: 'Times New Roman', Times, serif;
-    margin-bottom: 0rem;
+    margin-bottom: 0px;
+    margin-top: 0px;
     padding: 0;
-    text-align: center;
     justify-content: center;
-    margin-right: 30rem;
+    color: white;
+    margin-left: 1rem;
+}
+
+.burguer{
+    font-size: 2.0rem;
+    color: white;
+    cursor: pointer;
+}
+
+.burguer:hover{
+    background-color: rgb(103, 98, 98);
+    border-radius: 1000px;
+    color: rgb(0, 136, 255);
 }

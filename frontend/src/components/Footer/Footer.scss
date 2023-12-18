@@ -17,8 +17,13 @@
         flex-direction: row;
         margin-left: 500px;
 
-        .zap{
+        .MargemDireita{
             margin-right: 10px;
+        }
+
+        .circulo:hover{
+         background-color: rgb(103, 98, 98);
+         border-radius: 1000px;
         }
     
     }

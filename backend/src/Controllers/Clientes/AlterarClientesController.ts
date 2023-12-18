@@ -4,7 +4,7 @@ import { AlterarClientesServices } from '../../Services/Clientes/AlterarClientes
 class AlterarClientesController {
     async handle(req: Request, res: Response) {
         const {
-            id, alteraNome, alteraIdade, alteraCep, alteraCidade,
+            id, alteraNome, alteraIdade, alteraTelefone, alteraCep, alteraCidade,
             alteraEstado, alteraBairro, alteraRua, alteraComplemento,
             alteraEndereco
         } = req.body
@@ -12,6 +12,7 @@ class AlterarClientesController {
         const update = await alterarClientesServices.execute({
             id,
             alteraNome,
+            alteraTelefone,
             alteraIdade,
             alteraCep,
             alteraEstado,

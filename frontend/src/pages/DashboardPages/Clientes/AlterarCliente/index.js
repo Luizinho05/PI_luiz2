@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../../../../Context/authContext'
+import { IoIosArrowBack } from "react-icons/io";
 import apiLocal from '../../../../API/apiLocal/api'
 import apiCep from '../../../../API/apiCep/api'
 import './altera.scss'
@@ -11,6 +12,7 @@ export default function AlterarCliente() {
     const { id } = useParams()
     const [ListarUnicoCliente, setListarUnicoCliente] = useState("")
     const [alteraNome, setAlteraNome] = useState("")
+    const [alteraTelefone, setAlteraTelefone] = useState("")
     const [alteraIdade, setAlteraIdade] = useState("")
     const [alteraCep, setAlteraCep] = useState("")
     const [alteraEstado, setAlteraEstado] = useState("")
@@ -25,15 +27,15 @@ export default function AlterarCliente() {
     const [buscaCep, setBuscaCep] = useState("")
 
     async function handleCep() {
-        if(alteraCep.length < 8 || alteraCep.length > 8){
+        if (alteraCep.length < 8 || alteraCep.length > 8) {
             toast.warn('CEP incorreto')
             return
         } else {
             const response = await apiCep.get(`${alteraCep}/json`)
-            if (response.data.err === true){
+            if (response.data.err === true) {
                 toast.warn('CEP inexistente')
                 return
-            } else{
+            } else {
                 setBuscaCep(response.data)
             }
         }
@@ -60,7 +62,7 @@ export default function AlterarCliente() {
         }
         loginVerify()
     }, [])
-    
+
     useEffect(() => {
         async function listarClienteUnico() {
             const response = await apiLocal.get(`/ListarUnicoCliente/${id}`, {
@@ -68,7 +70,7 @@ export default function AlterarCliente() {
                     Authorization: 'Bearer ' + `${token}`
                 }
             })
-            if(response.data.dados){
+            if (response.data.dados) {
                 navigation('/Login')
                 return
             }
@@ -80,6 +82,7 @@ export default function AlterarCliente() {
     useEffect(() => {
         setAlteraNome(ListarUnicoCliente.alteraNome)
         setAlteraIdade(ListarUnicoCliente.alteraIdade)
+        setAlteraTelefone(ListarUnicoCliente.alteraTelefone)
         setAlteraCep(ListarUnicoCliente.alteraCep)
         setAlteraEstado(ListarUnicoCliente.alteraEstado)
         setAlteraCidade(ListarUnicoCliente.alteraCidade)
@@ -91,14 +94,15 @@ export default function AlterarCliente() {
 
     async function AlterarCliente(e) {
         e.preventDefault()
-        try{
+        try {
             const iToken = localStorage.getItem("@vistaseToken")
             const token = JSON.parse(iToken)
-        
+
             const response = await apiLocal.put("/AlterarCliente", {
                 id,
                 alteraNome,
                 alteraIdade,
+                alteraTelefone,
                 alteraCep,
                 alteraEstado,
                 alteraCidade,
@@ -108,14 +112,14 @@ export default function AlterarCliente() {
                 alteraEndereco
             }, {
                 headers: {
-                  Authorization: 'Bearer ' + `${token}`
+                    Authorization: 'Bearer ' + `${token}`
                 }
             })
             toast.info(response.data.dados)
             navigation("/ListarCliente")
-        }catch(err){
-           toast.error(err.response.data.error)
-           return
+        } catch (err) {
+            toast.error(err.response.data.error)
+            return
         }
     }
 
@@ -128,56 +132,81 @@ export default function AlterarCliente() {
                 <form onSubmit={AlterarCliente}>
                     <label>Insira Nome:</label>
                     <input
-                     type='text'
-                      value={alteraNome}
-                       onChange={(e) => setAlteraNome(e.target.value) }
-                       />
+                        placeholder='insira o nome'
+                        type='text'
+                        value={alteraNome}
+                        onChange={(e) => setAlteraNome(e.target.value)}
+                    />
                     <label>Insira Idade:</label>
-                    <input type='text'
-                     value={alteraIdade}
-                      onChange={(e) =>  setAlteraIdade(e.target.value) } 
-                      />
+                    <input
+                        placeholder='insira a idade'
+                        type='text'
+                        value={alteraIdade}
+                        onChange={(e) => setAlteraIdade(e.target.value)}
+                    />
+                    <label>Insira o Telefone:</label>
+                    <input
+                        placeholder='novo Telefone'
+                        type='text'
+                        value={alteraTelefone}
+                        onChange={(e) => setAlteraTelefone(e.target.value)}
+                    />
                     <label>Insira CEP:</label>
-                    <input type='text'
-                     value={alteraCep}
-                     onBlur={handleCep}
-                      onChange={(e) =>  setAlteraCep(e.target.value) }
-                      />
+                    <input
+                        placeholder='novo CEP'
+                        type='text'
+                        value={alteraCep}
+                        onBlur={handleCep}
+                        onChange={(e) => setAlteraCep(e.target.value)}
+                    />
                     <label>Insira Estado:</label>
-                    <input type='text'
-                     value={alteraEstado}
-                      onChange={(e) =>  setAlteraEstado(e.target.value) } 
-                      />
+                    <input
+                        placeholder='novo Estado'
+                        type='text'
+                        value={alteraEstado}
+                        onChange={(e) => setAlteraEstado(e.target.value)}
+                    />
                     <label>Insira Cidade:</label>
-                    <input type='text'
-                    value={alteraCidade}
-                    onChange={(e) =>  setAlteraCidade(e.target.value) }
+                    <input
+                        placeholder='Nova Cidade'
+                        type='text'
+                        value={alteraCidade}
+                        onChange={(e) => setAlteraCidade(e.target.value)}
                     />
                     <label>Insira Bairro:</label>
-                    <input type='text'
-                    value={alteraBairro}
-                    onChange={(e) =>  setAlteraBairro(e.target.value) }
+                    <input
+                        placeholder='Novo Bairro'
+                        type='text'
+                        value={alteraBairro}
+                        onChange={(e) => setAlteraBairro(e.target.value)}
                     />
                     <label>Insira Rua:</label>
-                    <input type='text'
-                     value={alteraRua}
-                    onChange={(e) =>  setAlteraRua(e.target.value) } 
+                    <input
+                        placeholder='Nova Rua'
+                        type='text'
+                        value={alteraRua}
+                        onChange={(e) => setAlteraRua(e.target.value)}
                     />
                     <label>Insira Complemento:</label>
-                    <input type='text'
-                    value={alteraComplemento}
-                    onChange={(e) => setAlteraComplemento(e.target.value) } 
+                    <input
+                        placeholder='Novo Complemento'
+                        type='text'
+                        value={alteraComplemento}
+                        onChange={(e) => setAlteraComplemento(e.target.value)}
                     />
                     <label>Insira Endereço:</label>
-                    <input type='text'
-                    value={alteraEndereco}
-                    onChange={(e) => setAlteraEndereco(e.target.value) } 
-                    /><br/>
+                    <input
+                        placeholder='Novo Endereço'
+                        type='text'
+                        value={alteraEndereco}
+                        onChange={(e) => setAlteraEndereco(e.target.value)}
+                    /><br />
 
                     <button type='submit'>Alterar</button>
                 </form>
             </div>
-            <br/><br/><br/><br/>
+            <Link to='/ListarCliente'><IoIosArrowBack size='1.4rem' color='blue' /></Link>
+            <br /><br /><br /><br />
         </div>
     )
 }

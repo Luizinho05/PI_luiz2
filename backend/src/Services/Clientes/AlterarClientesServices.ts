@@ -4,6 +4,7 @@ interface AlterarCliente {
     id: string
     alteraNome: string
     alteraIdade: string
+    alteraTelefone: string
     alteraCep: string
     alteraEstado: string
     alteraCidade: string
@@ -16,7 +17,9 @@ interface AlterarCliente {
 class AlterarClientesServices {
     async execute({
         id,
+        alteraNome,
         alteraIdade,
+        alteraTelefone,
         alteraCep,
         alteraEstado,
         alteraCidade,
@@ -32,7 +35,9 @@ class AlterarClientesServices {
                     id: id
                 },
                 data: {
+                    nome: 'null',
                     idade: alteraIdade,
+                    telefone: "null",
                     cep: alteraCep,
                     estado: alteraEstado,
                     cidade: alteraCidade,
@@ -48,7 +53,9 @@ class AlterarClientesServices {
                     id: id
                 },
                 data: {
+                    nome: alteraNome,
                     idade: alteraIdade,
+                    telefone: alteraTelefone,
                     cep: alteraCep,
                     estado: alteraEstado,
                     cidade: alteraCidade,

@@ -22,6 +22,7 @@ model Client {
     id          String @id @default(uuid())
     nome        String
     idade       String
+    telefone    String?
     cpf_cnpj    String
     rg_ie       String
     cep         String

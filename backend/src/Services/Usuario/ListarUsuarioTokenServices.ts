@@ -17,7 +17,7 @@ class ListarUsuarioTokenServices{
             email: true
         }
       })
-      return (resposta)
+      return resposta
    }
 }
 

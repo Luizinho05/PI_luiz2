@@ -3,6 +3,7 @@ import prismaClient from "../../prisma";
 interface CriarClientes {
   nome: string
   idade: string
+  telefone: string
   cpf_cnpj: string
   rg_ie: string
   cep: string
@@ -16,9 +17,10 @@ interface CriarClientes {
 
 class CriarClientesServices {
   async execute({
-    nome, idade, cpf_cnpj, rg_ie, cep, estado, cidade, bairro, rua, complemento, endereco
+    nome, idade, telefone, cpf_cnpj, rg_ie, cep, estado, cidade, bairro, rua, complemento, endereco
   }: CriarClientes) {
-    if (!nome || !idade || !cpf_cnpj || !rg_ie || !cep || !estado || !cidade || !bairro || !rua || !endereco) {
+    if (!nome || !idade || !telefone || !cpf_cnpj || !rg_ie || !cep || !estado ||
+      !cidade || !bairro || !rua || !endereco) {
       throw new Error('Faltou um ou mais campos sem registro!')
     }
 
@@ -44,6 +46,7 @@ class CriarClientesServices {
         data: {
           nome: nome,
           idade: idade,
+          telefone: "null",
           cpf_cnpj: cpf_cnpj,
           rg_ie: rg_ie,
           cep: cep,
@@ -60,6 +63,7 @@ class CriarClientesServices {
         data: {
           nome: nome,
           idade: idade,
+          telefone: telefone,
           cpf_cnpj: cpf_cnpj,
           rg_ie: rg_ie,
           cep: cep,

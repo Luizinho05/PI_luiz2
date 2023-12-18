@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { AuthContext } from "../../../../Context/authContext"
 import apiLocal from "../../../../API/apiLocal/api"
 import apiCep from "../../../../API/apiCep/api"
 import { toast } from "react-toastify"
-import "./insert.scss"
+import { IoIosArrowBack } from "react-icons/io";
+import "./Cliente.scss"
 
 export default function CriarCliente() {
     const navigation = useNavigate()
@@ -94,7 +95,7 @@ export default function CriarCliente() {
                 idade: idade,
                 cpf_cnpj: cpf_cnpj,
                 rg_ie: rg_ie,
-                tel: tel,
+                telefone: tel,
                 cep: cep,
                 estado: estado,
                 cidade: cidade,
@@ -118,13 +119,14 @@ export default function CriarCliente() {
 
 
     return (
-        <div className="container-fluid alignform">
+        <div>
             <div>
-                <h1>Cadastro de Cliente</h1>
+                <h1 className="alignform">Cadastro de Cliente</h1>
             </div>
 
             <div className="formInicio">
                 <form onSubmit={handleCadastrar}>
+
                     <label>Nome:</label>
                     <input
                         placeholder="Insira o Nome" type="text"
@@ -133,19 +135,19 @@ export default function CriarCliente() {
 
                     <label>Idade:</label>
                     <input
-                        placeholder="Insira a Idade" type="int"
+                        placeholder="Insira a Idade" type='number'
                         value={idade} onChange={(e) => setIdade(e.target.value)}
                     />
 
                     <label>Telefone_Celular:</label>
                     <input
-                        placeholder="Insira um número telefonico" type="int"
+                        placeholder="(99) 99 99999-9999" type='text'
                         value={tel} onChange={(e) => setTel(e.target.value)}
                     />
 
                     <label>CPF ou CNPJ:</label>
                     <input
-                        placeholder="Insira o cpf ou o cnpj" type="text"
+                        placeholder="Insira o CPF ou o CNPJ" type="text"
                         value={cpf_cnpj} onChange={(e) => setCPF_CNPJ(e.target.value)}
                     />
 
@@ -169,7 +171,7 @@ export default function CriarCliente() {
 
                     <label>CEP:</label>
                     <input
-                        placeholder="Insira o CEP" type="text"
+                        placeholder="Insira o CEP" type='text'
                         value={cep} onBlur={handleCep} onChange={(e) => setCep(e.target.value)}
                     />
 
@@ -187,23 +189,22 @@ export default function CriarCliente() {
 
                     <label>Bairro:</label>
                     <input
-                        placeholder="Insira o Nome" type="text"
+                        placeholder="Insira o Bairro" type="text"
                         value={bairro} onChange={(e) => setBairro(e.target.value)}
                     />
 
                     <label>Rua:</label>
                     <input
-                        placeholder="Insira o Nome" type="text"
+                        placeholder="Insira o Rua" type="text"
                         value={rua} onChange={(e) => setRua(e.target.value)}
                     />
 
                     <br />
 
                     <button type="submit">Cadastrar</button>
-
-                    <br /> <br />
                 </form>
             </div>
+            <Link to='/Dashboard'><IoIosArrowBack size='1.4rem' color='blue'/></Link>
             <br/><br/><br/><br/>
         </div>
     )

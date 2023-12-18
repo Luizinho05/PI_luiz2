@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../../../../Context/authContext'
+import { IoIosArrowBack } from "react-icons/io";
 import apiLocal from '../../../../API/apiLocal/api'
 import './insert.scss'
 
@@ -10,8 +11,10 @@ export default function CriarUsuario(){
     const [ nome, setNome ] = useState('')
     const [ email, setEmail ] = useState('')
     const [ password, setPassword ] = useState('')
+
     const iToken = localStorage.getItem('@vistaseToken')
     const token = JSON.parse(iToken)
+
     const [criarUsuario, setCriarUsuario] = useState([''])
 
     useEffect(() => {
@@ -73,9 +76,9 @@ export default function CriarUsuario(){
     }
 
     return(
-        <div className='container-fluid alignform'>
+        <div>
           <div>
-             <h1>Cadastro de Usuário</h1>
+             <h1 className='alignform'>Cadastro de Usuário</h1>
           </div>
           <div className='formInicio'>
             <form onSubmit={handleCadastrar}>
@@ -100,6 +103,7 @@ export default function CriarUsuario(){
               <button type='submit'>Cadastrar</button>
             </form>
           </div>
+          <Link to='/Dashboard'><IoIosArrowBack size='1.4rem' color='blue'/></Link>
           <br/><br/><br/><br/>
         </div>
     )
