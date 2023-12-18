@@ -29,3 +29,16 @@
 .p{
   margin-right: 1rem;
 }
+
+#oque{
+  margin-left: 28rem;
+}
+
+#email{
+  margin-left: 3rem;
+}
+
+.sobre{
+  display: flex;
+  flex-direction: row;
+}

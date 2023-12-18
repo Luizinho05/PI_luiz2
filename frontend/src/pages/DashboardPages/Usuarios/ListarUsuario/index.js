@@ -64,6 +64,10 @@ return(
 
                         <article key={item.id}>
                     <strong className='Info linhaDivision'>______________________________</strong><br/>
+                    <div className='sobre'>
+                    <h4 id='oque'>Nome</h4>
+                    <h4 id='email'>E-mail</h4>
+                    </div>
                     <div className='Info'>
                         <p className='p'>{item.nome}</p>
                         <p className='p'>{item.email}</p>
@@ -78,7 +82,7 @@ return(
                     )
                 })}
                 <Link to='/Dashboard'><IoIosArrowBack size='1.4rem' color='blue'/></Link>
-                <br/><br/><br/><br/>
+                <br/><br/><br/><br/><br/><br/><br/><br/>
                 </div>
              )
 

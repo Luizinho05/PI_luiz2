@@ -8,12 +8,19 @@
     justify-content: center;
     color: white;
     margin-left: 1rem;
+    margin-right: 30rem;
 }
 
 .burguer{
     font-size: 2.0rem;
     color: white;
     cursor: pointer;
+}
+
+.logado{
+    color: white;
+    font-size:1rem;
+    border-color: white;
 }
 
 .burguer:hover{
