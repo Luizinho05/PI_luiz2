@@ -1,7 +1,10 @@
 import prismaClient from "../../prisma";
+import { hash } from 'bcryptjs'
 
 interface CriarClientes {
   nome: string
+  email: string
+  password: string
   idade: string
   telefone: string
   cpf_cnpj: string
@@ -17,9 +20,9 @@ interface CriarClientes {
 
 class CriarClientesServices {
   async execute({
-    nome, idade, telefone, cpf_cnpj, rg_ie, cep, estado, cidade, bairro, rua, complemento, endereco
+    nome, email , password, idade, telefone, cpf_cnpj, rg_ie, cep, estado, cidade, bairro, rua, complemento, endereco
   }: CriarClientes) {
-    if (!nome || !idade || !telefone || !cpf_cnpj || !rg_ie || !cep || !estado ||
+    if (!nome || !email || !password || !idade || !telefone || !cpf_cnpj || !rg_ie || !cep || !estado ||
       !cidade || !bairro || !rua || !endereco) {
       throw new Error('Faltou um ou mais campos sem registro!')
     }
@@ -41,10 +44,23 @@ class CriarClientesServices {
       throw new Error('CPF/CNPJ ou RG/IE já registrado!')
     }
 
+    const cadastradoJa = await prismaClient.client.findFirst({
+      where: {
+        email: email
+      }
+    })
+
+    if (cadastradoJa) {
+      throw new Error('Email já cadastrado!')
+    }
+
+    const senhaCrypt = await hash(password, 8)
     if (complemento === "") {
       await prismaClient.client.create({
         data: {
           nome: nome,
+          email: email,
+          senha: senhaCrypt,
           idade: idade,
           telefone: "null",
           cpf_cnpj: cpf_cnpj,
@@ -62,6 +78,8 @@ class CriarClientesServices {
       await prismaClient.client.create({
         data: {
           nome: nome,
+          email: email,
+          senha: senhaCrypt,
           idade: idade,
           telefone: telefone,
           cpf_cnpj: cpf_cnpj,

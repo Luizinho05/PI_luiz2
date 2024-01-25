@@ -36,6 +36,8 @@ import { AlterarCategoriaController } from "./Controllers/Categorias/AlterarCate
 //Login
 import { LoginUsuarioController } from "./Controllers/Usuario/LoginUsuarioController"
 import { ListarUsuarioTokenController } from "./Controllers/Usuario/ListarUsuarioTokenController"
+import { LoginClienteController } from "./Controllers/Clientes/LoginClienteController"
+import { ListarClienteTokenController } from "./Controllers/Clientes/ListarClienteTokenController"
 
 import { autenticado } from "./middleware/authToken"
 const router = Router()
@@ -53,6 +55,7 @@ router.put("/AlterarUsuario",  new AlterarUsuarioController().handle)
 //Cliente
 
 router.post('/CriarCliente', autenticado, new CriarClientesController().handle )
+router.post('/LoginCliente', new LoginClienteController().handle)
 router.get('/ListarCliente', autenticado,  new ListarClientesController().handle)
 router.get('/ListarUnicoCliente/:id', autenticado, new ListarClienteUnicoController().handle)
 router.put('/AlterarCliente', autenticado,  new AlterarClientesController().handle)
@@ -76,5 +79,6 @@ router.delete('/ExcluirCategoria', autenticado, new ExcluirCategoriaController()
 
 //Login
 router.get('/ListarUsuarioToken', autenticado, new ListarUsuarioTokenController().handle)
+router.get('/ListarClienteToken', autenticado, new ListarClienteTokenController().handle)
 
 export { router }

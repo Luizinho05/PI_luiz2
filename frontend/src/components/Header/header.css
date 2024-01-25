@@ -7,8 +7,8 @@
     padding: 0;
     justify-content: center;
     color: white;
-    margin-left: 1rem;
-    margin-right: 30rem;
+    margin-left: 30rem;
+    margin-right: 1rem;
 }
 
 .burguer{
@@ -21,4 +21,47 @@
     background-color: rgb(103, 98, 98);
     border-radius: 1000px;
     color: rgb(0, 136, 255);
+}
+
+.dropbtn{
+    background-color: transparent;
+    padding: 1px;
+    border: none;
+  }
+
+  .dropdown {
+    position: absolute;
+  }
+
+  .dropdown-content{
+    display: none;
+    border-radius: 10px;
+    position: absolute;
+    background-color: whitesmoke;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+  color: black;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  }
+  
+.dropdown-content a:hover {
+  background-color: black;
+  color: rgb(13, 134, 248);
+  border-radius: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: transparent;
 }

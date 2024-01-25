@@ -16,10 +16,10 @@ export default function Home() {
     return (
         <div>
             <div className="home">
-                <p className="aligntitle">Dê uma cara nova a você!</p>
+                <p className="aligntitle">Seja bem-vindo a Loja Virtual !</p>
                 <p className="aligntitle">O que você está procurando hoje?</p> <br />
 
-                <Carousel data-bs-theme="dark">
+                <Carousel data-bs-theme="transparent">
                     <Carousel.Item>
                         <img
                             className="imagens"

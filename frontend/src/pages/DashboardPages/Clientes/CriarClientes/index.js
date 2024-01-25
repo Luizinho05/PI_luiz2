@@ -10,6 +10,8 @@ import "./Cliente.scss"
 export default function CriarCliente() {
     const navigation = useNavigate()
     const [nome, setNome] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
     const [idade, setIdade] = useState("")
     const [cpf_cnpj, setCPF_CNPJ] = useState("")
     const [rg_ie, setRG_IE] = useState("")
@@ -34,13 +36,13 @@ export default function CriarCliente() {
                     Authorization: 'Bearer ' + `${token}`
                 }
             })
-            if(response.data.dados === !token){
+            if (response.data.dados === !token) {
                 navigation('/Login')
                 return
-           } else if(token){
-            navigation('/CriarCliente')
-            return
-           }
+            } else if (token) {
+                navigation('/CriarCliente')
+                return
+            }
             setCriarCliente(response.data)
         }
         loadClientes()
@@ -60,15 +62,15 @@ export default function CriarCliente() {
     }, [])
 
     async function handleCep() {
-        if(cep.length < 8 || cep.length > 8){
+        if (cep.length < 8 || cep.length > 8) {
             toast.warn('CEP incorreto')
             return
         } else {
             const response = await apiCep.get(`${cep}/json`)
-            if (response.data.err === true){
+            if (response.data.err === true) {
                 toast.warn('CEP inexistente')
                 return
-            } else{
+            } else {
                 setBuscaCep(response.data)
             }
         }
@@ -89,9 +91,11 @@ export default function CriarCliente() {
         try {
             const iToken = localStorage.getItem('@vistaseToken')
             const token = JSON.parse(iToken)
-        
+
             await apiLocal.post("/CriarCliente", {
                 nome: nome,
+                email: email,
+                password: password,
                 idade: idade,
                 cpf_cnpj: cpf_cnpj,
                 rg_ie: rg_ie,
@@ -102,7 +106,7 @@ export default function CriarCliente() {
                 bairro: bairro,
                 rua: rua,
                 complemento: complemento,
-                endereco: endereco               
+                endereco: endereco
             }, {
                 headers: {
                     Authorization: 'Bearer ' + `${token}`
@@ -131,6 +135,18 @@ export default function CriarCliente() {
                     <input
                         placeholder="Insira o Nome" type="text"
                         value={nome} onChange={(e) => setNome(e.target.value)}
+                    />
+
+                    <label>E-mail:</label>
+                    <input
+                        placeholder="Insira o email" type="email"
+                        value={email} onChange={(e) => setEmail(e.target.value)}
+                    />
+
+                    <label>Senha:</label>
+                    <input
+                        placeholder="Insira a senha" type="password"
+                        value={password} onChange={(e) => setPassword(e.target.value)}
                     />
 
                     <label>Idade:</label>
@@ -204,8 +220,8 @@ export default function CriarCliente() {
                     <button type="submit">Cadastrar</button>
                 </form>
             </div>
-            <Link to='/Dashboard'><IoIosArrowBack size='1.4rem' color='blue'/></Link>
-            <br/><br/><br/><br/>
+            <Link to='/Dashboard'><IoIosArrowBack size='1.4rem' color='blue' /></Link>
+            <br /><br /><br /><br />
         </div>
     )
 }

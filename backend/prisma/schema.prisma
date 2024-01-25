@@ -21,6 +21,8 @@ model User {
 model Client {
     id          String @id @default(uuid())
     nome        String
+    email       String
+    senha       String
     idade       String
     telefone    String?
     cpf_cnpj    String
