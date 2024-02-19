@@ -3,13 +3,11 @@ import { CriarClientesServices } from '../../Services/Clientes/CriarClientesServ
 
 class CriarClientesController {
     async handle(req: Request, res: Response){
-    const { nome, email, password, idade, telefone, cpf_cnpj, rg_ie, cep, cidade, estado, bairro, rua,
+    const { nome, idade, telefone, cpf_cnpj, rg_ie, cep, cidade, estado, bairro, rua,
           complemento, endereco } = req.body
     const criarClientesServices = new CriarClientesServices()
     const cliente = await criarClientesServices.execute({
         nome,
-        email,
-        password,
         idade,
         telefone,
         cpf_cnpj,

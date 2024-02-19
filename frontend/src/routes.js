@@ -20,8 +20,6 @@ import CriarCategoria from "./pages/DashboardPages/Categoria/CriarCategoria"
 import ListarCategoria from './pages/DashboardPages/Categoria/ListarCategoria'
 import AlterarCategoria from './pages/DashboardPages/Categoria/AlterarCategoria'
 
-import DashboardCliente from "./pages/DashboardPages/dashboardCliente"
-import LoginCliente from "./pages/loginCliente"
 
 export default function Rotas() {
     return (
@@ -44,8 +42,6 @@ export default function Rotas() {
                 <Route path='/CriarCategoria' element={<CriarCategoria/>} />
                 <Route path='/ListarCategoria' element={<ListarCategoria/>} />
                 <Route path='/AlteraCategoria/:id' element={<AlterarCategoria/>} />
-                <Route path='/LoginCliente' element={ <LoginCliente/> }/>
-                <Route path='/dashboardCliente' element={ <DashboardCliente/> }/>
             </Routes>
             <Footer />
         </BrowserRouter>

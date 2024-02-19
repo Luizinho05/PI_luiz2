@@ -3,7 +3,6 @@ import prismaClient from '../../prisma'
 interface AlterarCliente {
     id: string
     alteraNome: string
-    alteraPassword: string
     alteraIdade: string
     alteraTelefone: string
     alteraCep: string
@@ -19,7 +18,6 @@ class AlterarClientesServices {
     async execute({
         id,
         alteraNome,
-        alteraPassword,
         alteraIdade,
         alteraTelefone,
         alteraCep,
@@ -38,7 +36,6 @@ class AlterarClientesServices {
                 },
                 data: {
                     nome: 'null',
-                    senha: 'null',
                     idade: alteraIdade,
                     telefone: "null",
                     cep: alteraCep,
@@ -57,7 +54,6 @@ class AlterarClientesServices {
                 },
                 data: {
                     nome: alteraNome,
-                    senha: alteraPassword,
                     idade: alteraIdade,
                     telefone: alteraTelefone,
                     cep: alteraCep,

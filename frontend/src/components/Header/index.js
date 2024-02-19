@@ -11,7 +11,6 @@ export default function Header() {
                 <div className='dropdown'>
                     <button className='dropbtn'><TbMenu className='burguer' /></button>
                     <div className='dropdown-content'>
-                    <Link to='/LoginCliente'>Login Cliente</Link>
                     <Link to='/Login'>Login Funcionário</Link>
                     </div>
                 </div>
