@@ -63,7 +63,6 @@ export default function ListarCliente() {
                         <tr>
                             <th className="ValoresDefinidos">ID</th>
                             <th className="ValoresDefinidos">Nome</th>
-                            <th className="ValoresDefinidos">E-mail</th>
                             <th className="ValoresDefinidos">idade</th>
                             <th className="ValoresDefinidos">Telefone</th>
                             <th className="ValoresDefinidos">CPF/CNPJ</th>
@@ -83,7 +82,6 @@ export default function ListarCliente() {
                             <tr key={item.id}>
                                 <td className="TextoTabela">{item.id}</td>
                                 <td className="TextoTabela">{item.nome}</td>
-                                <td className="TextoTabela">{item.email}</td>
                                 <td className="TextoTabela">{item.idade}</td>
                                 <td className="TextoTabela">{item.telefone}</td>
                                 <td className="TextoTabela">{item.cpf_cnpj}</td>
