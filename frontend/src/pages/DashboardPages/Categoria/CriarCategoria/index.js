@@ -86,7 +86,7 @@ export default function CriarCategoria() {
                 </form>
             </div>
            <Link to='/Dashboard'><IoIosArrowBack size='1.4rem' color='blue' /></Link>
-            <br /><br /><br /><br />
+            <br /><br /><br /><br /><br/><br/>
         </div>
     )
 }
