@@ -14,7 +14,7 @@ export default function Header() {
                     <Link to='/Login'>Login Funcionário</Link>
                     </div>
                 </div>
-                <Link to='/'><p className="vistase">VISTA-SE!<img src={LOGO} alt="LOGO" style={{ width: 50, height: 60 }} /></p></Link>
+                <Link to='/'><p class="vistase">VISTA-SE!<img src={LOGO} alt="LOGO" style={{ width: 50, height: 60 }} /></p></Link>
             </div>
         </div>
     )

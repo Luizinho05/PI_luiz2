@@ -29,7 +29,7 @@ border: 2px solid #000000;
 .ValoresDefinidos{
   background-color: rgb(9, 107, 173);
   border: 2px solid #000000;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   color: black;
   text-align: center;
@@ -39,7 +39,7 @@ border: 2px solid #000000;
 .TextoTabela{
               background-color: rgb(24, 142, 221);
               border: 2px solid #000000;
-              font-size: 1rem;
+              font-size: 0.80rem;
               font-weight:bold;
               color: black;
               padding: 1px;

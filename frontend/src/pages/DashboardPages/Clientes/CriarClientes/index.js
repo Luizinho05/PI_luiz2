@@ -10,6 +10,8 @@ import "./Cliente.scss"
 export default function CriarCliente() {
     const navigation = useNavigate()
     const [nome, setNome] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
     const [idade, setIdade] = useState("")
     const [cpf_cnpj, setCPF_CNPJ] = useState("")
     const [rg_ie, setRG_IE] = useState("")
@@ -23,10 +25,8 @@ export default function CriarCliente() {
     const [endereco, setEndereco] = useState("")
 
     const [buscaCep, setBuscaCep] = useState("")
-
     const iToken = localStorage.getItem('@vistaseToken')
     const token = JSON.parse(iToken)
-
     const [criarCliente, setCriarCliente] = useState([''])
 
     useEffect(() => {
@@ -94,6 +94,8 @@ export default function CriarCliente() {
 
             await apiLocal.post("/CriarCliente", {
                 nome: nome,
+                email: email,
+                password: password,
                 idade: idade,
                 cpf_cnpj: cpf_cnpj,
                 rg_ie: rg_ie,
@@ -133,6 +135,18 @@ export default function CriarCliente() {
                     <input
                         placeholder="Insira o Nome" type="text"
                         value={nome} onChange={(e) => setNome(e.target.value)}
+                    />
+
+                    <label>E-mail:</label>
+                    <input
+                        placeholder="Insira o email" type="email"
+                        value={email} onChange={(e) => setEmail(e.target.value)}
+                    />
+
+                    <label>Senha:</label>
+                    <input
+                        placeholder="Insira a senha" type="password"
+                        value={password} onChange={(e) => setPassword(e.target.value)}
                     />
 
                     <label>Idade:</label>
